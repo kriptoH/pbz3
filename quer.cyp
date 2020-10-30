@@ -14,19 +14,19 @@ MATCH (laptop)-[l:LIKE]->(GAME)
 RETURN laptop.name;
 
 // 4
-MATCH (laptop2)-[:BE_NEUTRAL]->(laptop)-[l:LIKE]->(NEEDFORSPEED:GUN)
+MATCH (laptop2)-[:BE_COMPATIBLE]->(laptop)-[l:LIKE]->(NEEDFORSPEED:GUN)
   WHERE NEEDFORSPEED.name = 'NEED FOR SPEED' AND l.rating > 8
 RETURN laptop2.name;
 
 // 5
-MATCH (laptop2)-[:BE_NEUTRAL]->(laptop)-[l:LIKE]->(game:GAME)
+MATCH (laptop2)-[:BE_COMPATIBLE]->(laptop)-[l:LIKE]->(game:GAME)
   WHERE laptop2.name = 'MSI' AND l.rating > 6
   AND NOT (laptop2)-[:LIKE]->(game:GAME)
 RETURN game;
 
 
 // 6
-MATCH (msi:laptop)-[:BE_NEUTRAL]->(relation:laptop)
+MATCH (msi:laptop)-[:BE_COMPATIBLE]->(relation:laptop)
 RETURN relation;
 
 // 7

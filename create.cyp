@@ -52,19 +52,19 @@ CREATE(asus)-[:LIKE {rating: 3}]->(WORLDOFTANKS:GUN {name: 'WORLD OF TANKS', siz
 
 MATCH(msi:laptop), (lenovo:laptop)
   WHERE msi.name = 'MSI' AND lenovo.name = 'Lenovo'
-CREATE(msi)-[:BE_NEUTRAL]->(lenovo);
+CREATE(msi)-[:BE_COMPATIBLE]->(lenovo);
 
 MATCH(msi:laptop), (lenovo:laptop)
   WHERE msi.name = 'MSI' AND lenovo.name = 'Lenovo'
-CREATE(msi)<-[:BE_NEUTRAL]-(lenovo);
+CREATE(msi)<-[:BE_COMPATIBLE]-(lenovo);
 
 MATCH(asus:laptop), (lenovo:laptop)
   WHERE asus.name = 'ASUS' AND lenovo.name = 'Lenovo'
-CREATE(asus)<-[:BE_NEUTRAL]-(lenovo);
+CREATE(asus)<-[:BE_COMPATIBLE]-(lenovo);
 
 MATCH(asus:laptop), (lenovo:laptop)
   WHERE asus.name = 'ASUS' AND lenovo.name = 'Lenovo'
-CREATE(asus)-[:BE_NEUTRAL]->(lenovo);
+CREATE(asus)-[:BE_COMPATIBLE]->(lenovo);
 
 MATCH(n)
 DETACH
